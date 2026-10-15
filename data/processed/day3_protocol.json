@@ -1,0 +1,60 @@
+{
+  "written_utc": "2026-10-14T19:47:58+00:00",
+  "search_terms": [
+    "economy",
+    "inflation",
+    "prices",
+    "jobs",
+    "unemployment",
+    "recession",
+    "cost of living",
+    "tariffs",
+    "interest rates",
+    "gas prices",
+    "grocery",
+    "mortgage",
+    "wages"
+  ],
+  "window": [
+    "2022-01-01",
+    "2026-10-13"
+  ],
+  "guardian": {
+    "sections": "us-news|us-money|business",
+    "page_size": 50,
+    "max_pages_per_month": 6,
+    "order": "relevance"
+  },
+  "gdelt": {
+    "days": 85,
+    "window_days": 3,
+    "maxrecords": 250,
+    "filters": "sourcecountry:US sourcelang:english"
+  },
+  "reddit": {
+    "subreddits": [
+      "Economics",
+      "economy",
+      "personalfinance",
+      "politics",
+      "Conservative"
+    ],
+    "cap_per_half_month": 100,
+    "source": "Arctic Shift archive"
+  },
+  "dedupe": "exact URL; normalised title within source and 7 days",
+  "known_gaps": [
+    "no historical US local news",
+    "GDELT recent 85 days only",
+    "Reddit sampled",
+    "Guardian is UK-based",
+    "no exposure measure"
+  ],
+  "amendments": [
+    {
+      "id": 1,
+      "note": "Reddit windows changed from half-month (100 posts) to weekly (limit=auto, 100-1000). Reason: in the first run 100% of half-month windows hit the 100-post cap, so only the first day or so of each half-month was sampled. Decided after seeing collection counts only, before any text was read or coded.",
+      "utc": "2026-10-14T21:11:47+00:00"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.ipynb_checkpoints/
+__pycache__/
+.venv/
+.env
+*.pyc
+# API keys live in environment variables, never in the repo
+guardian_key.txt
+data/cache/*
+!data/cache/manifest.json
