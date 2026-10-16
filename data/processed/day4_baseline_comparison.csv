@@ -1,0 +1,4 @@
+comparison (3-class tone: negative / neutral / positive),weighted kappa,raw agreement
+Word list vs human,0.08,0.47
+AI vs human,0.94,0.95
+Word list vs AI,0.1,0.47

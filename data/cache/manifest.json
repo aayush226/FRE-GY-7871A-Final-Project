@@ -30756,6 +30756,20 @@
     "sha256": "44abb49c38aaa126f33d9128b72f6278fba68e5668bdfe54d15c33a81406ef51",
     "url": "https://arctic-shift.photon-reddit.com/api/posts/search"
   },
+  "reddit_politics_w20251011.json": {
+    "bytes": 357061,
+    "method": "requests",
+    "params": {
+      "after": "2025-10-11",
+      "before": "2025-10-18",
+      "limit": "auto",
+      "sort": "asc",
+      "subreddit": "politics"
+    },
+    "retrieved_utc": "2026-10-16T05:09:21+00:00",
+    "sha256": "f133cd3ac594fb0e091d2962a040843d9927b586e430feec6557aabe8ee97b93",
+    "url": "https://arctic-shift.photon-reddit.com/api/posts/search"
+  },
   "reddit_politics_w20251018.json": {
     "bytes": 917505,
     "method": "curl",
