@@ -36,3 +36,7 @@ Every download goes through `fetch_cached()`. A file already in `data/cache/` is
 * **Fast route:** unzip `cache.zip` (shared separately, link below) into `data/cache/`. The notebook then runs end to end without downloading.
 * **From scratch:** run the notebook with your own `GUARDIAN_API_KEY`. The first run takes over an hour because of the Reddit and GDELT rate limits.
 * Cache zip link: _(add here after uploading)_
+
+## Day 4: labels and AI coding
+* `LABELING_GUIDE.md` (v1) is frozen before any AI labeling. Human labels: `data/processed/day4_labels_HUMAN_pass1_filled.xlsx`.
+* AI labels use the OpenAI API. Put `OPENAI_API_KEY=sk-...` in `.env` (git-ignored). Every answer is cached; the notebook has a spending cap. Prompt, model snapshot and prompt hash are saved in `data/processed/day4_ai_prompt.txt` and with each label.
