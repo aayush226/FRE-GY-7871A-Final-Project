@@ -10,10 +10,11 @@ Question: do AI-measured economic narratives in news and social media help expla
 | Path | Contents |
 |---|---|
 | `final_project.ipynb` | The single working notebook. Parts 1 to 5 (baseline, gap model, corpus, labeling and validation, media tests). Run All rebuilds every table and figure from cached data |
-| `colab_open_model_labeler.ipynb` | Colab notebook that labels the corpus with an open model (vLLM) |
+| `colab_open_model_labeler_final.ipynb` | Colab notebook that labels the corpus with an open model (vLLM) |
 | `LABELING_GUIDE.md` | Coding scheme, frozen before any AI labeling |
-| `report/` | 10-page report (`.pdf`) |
-| `dashboard/` | `dashboard_standalone.html` (open in any browser, works offline), `data/` (tables behind it), `dashboard_page.html` (page used on the hosted version) |
+| `report/` | 10-page report (`FRE-GY-7871A_report.pdf`) |
+| `AI_USE.md` | Disclosure of AI tools used |
+| `dashboard/` | `dashboard_standalone.html`: the monitoring dashboard, open in any browser (works offline; data embedded) |
 | `data/raw/` | Provided `Perceptual_Bias_Data.xlsx`, Michigan tables (`tbmics.csv`, `tbmiccice.csv`, `tbmpx1px5.csv`), FRED CSVs saved by hand |
 | `data/cache/` | Downloads (about 800 MB). Only `manifest.json` (URL, UTC time, SHA-256 of every download) is in git |
 | `data/processed/` | Tables, figures, label sheets and keys the notebook writes |
@@ -21,7 +22,7 @@ Question: do AI-measured economic narratives in news and social media help expla
 
 ## Setup (Windows, VS Code)
 ```powershell
-cd final_project
+cd FRE-GY-7871A-Final-Project
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -34,7 +35,7 @@ Every download goes through `fetch_cached()`. A file already in `data/cache/` is
 
 ## Re-creating the download cache
 * **From scratch:** run the notebook with your own `GUARDIAN_API_KEY`. The first run takes over an hour because of the Reddit and GDELT rate limits. `manifest.json` lists what was downloaded.
-* **Fast route:** if a `cache.zip` is shared with you, unzip it into `data/cache/`; the notebook then runs end to end without downloading. Cache zip link: _(add here after uploading, or leave blank)_.
+* **Fast route:** if a `cache.zip` is shared with you, unzip it into `data/cache/`; the notebook then runs end to end without downloading.
 * The Guardian key goes in a git-ignored `.env` file (`GUARDIAN_API_KEY=your-key`), or the environment variable of the same name, or alone on one line in git-ignored `guardian_key.txt`. Never commit a key.
 
 ## Parts of the notebook
@@ -45,7 +46,7 @@ Every download goes through `fetch_cached()`. A file already in `data/cache/` is
 * **Part 5 (Day 5):** monthly media measures, association tests, rolling forecasts, lead-lag, sensitivity, power, salience, causal-design proposal.
 
 ### Labeling with an open model (no API credit needed)
-`colab_open_model_labeler.ipynb` runs an open-weights model on a Colab GPU with the same prompt, fields and allowed values. The final labels used `Qwen/Qwen2.5-14B-Instruct-AWQ` (`QUANT="awq"`, L4 GPU), temperature 0, seed 7, JSON-schema output, about 40 minutes for the 20,214-item corpus.
+`colab_open_model_labeler_final.ipynb` runs an open-weights model on a Colab GPU with the same prompt, fields and allowed values. The final labels used `Qwen/Qwen2.5-14B-Instruct-AWQ` (`QUANT="awq"`, L4 GPU), temperature 0, seed 7, JSON-schema output, about 40 minutes for the 20,214-item corpus.
 1. Run notebook section 4.8 (writes the Colab input files).
 2. Upload them to a Drive folder `fre7871_labels`, run the Colab notebook.
 3. Copy the three `day4_ai_labels_OPEN_*.csv` files back into `data/processed/`.
@@ -70,8 +71,8 @@ An OpenAI route also exists in section 4.4 (set `OPENAI_API_KEY` in `.env`; answ
 
 ## Day 6: dashboard, report, presentation
 * `dashboard/dashboard_standalone.html` shows sentiment against the prediction, the gap, media tone, forecast comparison, source composition and missing months, label validity, events and release lags.
-* To update after the election: rerun the notebook with refreshed Michigan files and new Guardian and Reddit items, then rebuild the JSON tables in `dashboard/data/` from the new `day5_*.csv` files.
-* `report/build_report.py` rebuilds the report from the Day 5 numbers.
+* To update after the election: rerun the notebook with refreshed Michigan files and new Guardian and Reddit items, then regenerate the dashboard from the new `data/processed/day5_*.csv` files (the tables are embedded in `dashboard_standalone.html`).
+* Every number in the report comes from the notebook outputs in `data/processed/`.
 
 ## Prospective update plan
 After the 3 November election: refresh Michigan files after the final October release, collect Guardian and Reddit items for October and November, rerun labeling and Part 5, and compare October and November sentiment with the predictions frozen at the cutoff before any refit.
