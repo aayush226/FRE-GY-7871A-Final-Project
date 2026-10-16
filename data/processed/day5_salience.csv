@@ -1,0 +1,5 @@
+measure,form,months,correlation with gap,HAC p,surrogate p
+Share of US-economy items about prices and inflation,level,50,0.278348401375128,0.15294430116657037,0.5065
+Share of US-economy items about prices and inflation,12-month change,33,0.1599282977416419,0.524032614853466,0.6825
+Share of all items that are about the US economy,level,57,-0.4593422138189928,0.0005339156575180914,0.0335
+Share of all items that are about the US economy,12-month change,45,-0.4608455358965155,0.012481099101594928,0.012

@@ -1,0 +1,3 @@
+question,coefficient on the other series,HAC p,months
+Does last month's tone predict this month's gap (given last month's gap)?,4.458430886685895,0.04903288243167277,49
+Does last month's gap predict this month's tone (given last month's tone)?,0.0012865751722831785,0.7257929691984519,43

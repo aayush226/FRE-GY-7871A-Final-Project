@@ -1,0 +1,3 @@
+test,months,correlation,corr 95% block-bootstrap CI,slope (index pts per tone pt),HAC s.e.,HAC p-value,surrogate-test p-value (main)
+"Level, same month",50,0.48922476496559336,"[+0.21, +0.75]",14.200534417801528,4.2874932554218,0.0009260399824029249,0.222
+12-month change,33,0.34421459478685995,"[-0.08, +0.51]",6.838552548203108,2.476736641691714,0.005760454157440433,0.2845

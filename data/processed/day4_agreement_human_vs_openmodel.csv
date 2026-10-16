@@ -1,0 +1,6 @@
+field,n,raw agreement,kappa,95% CI low,95% CI high
+us_econ (all items),300,0.84,0.69,0.6,0.76
+topic,130,0.85,0.81,0.74,0.89
+tone (weighted),130,0.62,0.78,0.69,0.85
+frame,130,0.55,0.45,0.35,0.55
+blame,130,0.73,0.54,0.41,0.66
